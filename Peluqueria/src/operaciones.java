@@ -11,25 +11,25 @@ public class operaciones {
 
     public static void agendar(Scanner sc) {
         if (total == MAX) {
-            System.out.println("Agenda llena. No se pueden agregar mas reservas.");
+            System.out.println("Agenda llena, No se pueden agregar mas reservas, lo lamentamos");
             return;
         }
 
         String nombre = validador.leerTexto(sc, "Nombre completo del cliente: ");
         if (!validador.nombreValido(nombre)) {
-            System.out.println("Nombre invalido.");
+            System.out.println("Nombre invalido");
             return;
         }
 
         int hora = validador.leerEntero(sc, "Hora (8:00 AM a 17:00/(5:00) PM): ");
         if (!validador.horaValida(hora)) {
-            System.out.println("La hora que fue elegida esta fuera de horario laboral, eliga otra, porfavor.");
+            System.out.println("La hora que fue elegida esta fuera de horario laboral, eliga otra, porfavor");
             return;
         }
 
         for (int i = 0; i < total; i++) {
             if (horas[i] == hora) {
-                System.out.println("Esa hora ya está ocupada, intenta de nuevo.");
+                System.out.println("Esa hora ya está ocupada, intenta de nuevo");
                 return;
         
     }
@@ -37,7 +37,7 @@ public class operaciones {
 
         int servicio = validador.leerEntero(sc, "Servicio (1=Corte, 2=Tinte, 3=Manicure): ");
         if (!validador.servicioValido(servicio)) {
-            System.out.println("Servicio invalido.");
+            System.out.println("Servicio invalido");
             return;
         }
 
@@ -45,12 +45,12 @@ public class operaciones {
         horas[total] = hora;
         servicios[total] = servicio;
         total++;
-        System.out.println("Reserva agendada correctamente.");
+        System.out.println("Reserva agendada de forma correcta");
     }
 
  public static void listar() {
         if (total == 0) {
-            System.out.println("Aun no hay reservas.");
+            System.out.println("Aun no hay reservas");
             return;
         }
         System.out.println("--- RESERVAS DEL DIA ---");
@@ -75,13 +75,13 @@ public class operaciones {
 
    public static void cancelar(Scanner sc) {
         if (total == 0) {
-            System.out.println("Aun no hay reservas.");
+            System.out.println("Aun no hay reservas");
             return;
         }
         listar();
         int pos = validador.leerEntero(sc, "Numero de reserva a cancelar: ");
         if (pos < 1 || pos > total) {
-            System.out.println("Esa reserva no existe.");
+            System.out.println("Esa reserva no existe en la agenda");
             return;
         }
 
@@ -94,7 +94,7 @@ public class operaciones {
 
 
         total--;
-        System.out.println("Reserva cancelada.");
+        System.out.println("La reserva a sido cancelada");
     }
 
     public static double precioServicio(int codigo) {
@@ -112,7 +112,7 @@ public class operaciones {
 
  public static void reporte() {
     if (total == 0) {
-        System.out.println("Aun no hay reservas.");
+        System.out.println("Aun no hay reservas");
         return;
     }
     double totalFacturado = 0;
